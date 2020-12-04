@@ -28,14 +28,14 @@ for (i in 1:NumberOfRVs){
   # generate a unirm
   u<-runif(1,0,1)
 
-  # Transform u to get an expo rv
-  ConditionedExpRV<- (-1/lambda)*log(u)
-  # It is >y?
+  # Transform u to get an expo rv - let's call that ConditionedExpRV
+ 
+  # It is >y? If not, keep generating until you get one that is
   while (ConditionedExpRV < y){
-    u<-runif(1,0,1)
-    ConditionedExpRV<- (-1/lambda)*log(u)
+    # regenerate ConditionedExpRV
   }
-  # When you leave this loop you shoudl have an expo(lambda) rv that is >y
+  
+  # When you leave this loop you should have an expo(lambda) rv that is >y
   
   #Store the value of ConditionedExpRV
   
